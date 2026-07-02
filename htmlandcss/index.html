@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Tax Invoice</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#eee;
+    padding:20px;
+}
+
+.invoice{
+    width:1000px;
+    margin:auto;
+    background:#fff;
+    padding:15px;
+}
+
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:10px;
+}
+
+.company-section{
+    display:flex;
+    gap:15px;
+}
+
+.logo{
+    width:95px;
+    height:95px;
+    border:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.company-details h2{
+    font-size:32px;
+    margin-bottom:4px;
+}
+
+.company-details p{
+    line-height:1.4;
+    font-size:15px;
+}
+
+.invoice-title{
+    text-align:right;
+}
+
+.invoice-title h1{
+    color:#0b5ed7;
+    font-size:24px;
+    letter-spacing:3px;
+}
+
+.invoice-title span{
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+.qr{
+    width:160px;
+    height:160px;
+    border:1px solid #333;
+    margin-top:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td,th{
+    border:1px solid #000;
+    padding:6px;
+    vertical-align:top;
+    font-size:14px;
+}
+
+.info-table{
+    margin-top:10px;
+}
+
+.info-table td{
+    height:45px;
+}
+
+.label{
+    font-weight:bold;
+}
+
+.item-table{
+    margin-top:0;
+}
+
+.item-table th{
+    text-align:center;
+}
+
+.item-table td{
+    height:40px;
+}
+
+.right{
+    text-align:right;
+}
+
+.center{
+    text-align:center;
+}
+
+.bold{
+    font-weight:bold;
+}
+
+.total-section{
+    display:flex;
+    width:100%;
+}
+
+.left-summary{
+    width:60%;
+    border-left:1px solid #000;
+    border-bottom:1px solid #000;
+    border-right:1px solid #000;
+    padding:10px;
+}
+
+.right-summary{
+    width:40%;
+}
+
+.tax-summary td{
+    font-size:15px;
+}
+
+.grand-total{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.paid{
+    color:green;
+    font-weight:bold;
+}
+
+.bank-area{
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.bank-details{
+    width:60%;
+}
+
+.bank-details table td{
+    border:none;
+    padding:2px;
+}
+
+.payment-qr{
+    width:110px;
+    height:110px;
+    border:1px solid #333;
+}
+
+.tax-breakup{
+    margin-top:10px;
+}
+
+.notes-sign{
+    display:flex;
+    border:1px solid #000;
+    border-top:none;
+}
+
+.notes{
+    width:75%;
+    padding:15px;
+}
+
+.notes h4{
+    margin-bottom:8px;
+}
+
+.notes ol{
+    padding-left:18px;
+    line-height:1.7;
+}
+
+.signature{
+    width:25%;
+    border-left:1px solid #000;
+    padding:15px;
+    text-align:center;
+}
+
+.sign-img{
+    font-family:cursive;
+    font-size:42px;
+    margin-top:50px;
+}
+
+.footer{
+    margin-top:180px;
+    display:flex;
+    gap:30px;
+    font-size:14px;
+}
+
+.small{
+    font-size:13px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="invoice">
+
+    <!-- HEADER -->
+    <div class="top-header">
+
+        <div class="company-section">
+
+            <div class="logo">
+                LOGO
+            </div>
+
+            <div class="company-details">
+                <h2>ITC LIMITED</h2>
+
+                <p>
+                    No. 18, ITC Limited Banaswadi Road,
+                    Pulikeshi Nagar<br>
+                    Bengaluru Urban, KARNATAKA, 560005
+                </p>
+
+                <p>
+                    <b>GSTIN:</b> 29AAACI5950L1Z6
+                </p>
+
+                <p>
+                    <b>Mobile:</b> 9999999999
+                    &nbsp;&nbsp;
+                    <b>Email:</b> swipe@gmail.com
+                </p>
+
+                <p class="small">
+                    IRN: 46257511d851510e07adc2feb9a4fdef20eddfd91326f72b20b731857e1fb6c9
+                </p>
+
+                <p class="small">
+                    Acknowledgement Number:
+                    212210141498216
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="invoice-title">
+            <h1>TAX INVOICE</h1>
+            <span>ORIGINAL FOR RECIPIENT</span>
+
+            <div class="qr"></div>
+        </div>
+
+    </div>
+
+    <!-- CUSTOMER / INVOICE DETAILS -->
+
+    <table class="info-table">
+
+        <tr>
+
+            <td rowspan="3" width="50%">
+                <b>Customer Details:</b><br>
+
+                Yogesh Chander Deveshwar<br>
+
+                GSTIN: 27AABCR1718E1ZP
+
+                <br><br>
+
+                <b>Billing address:</b><br>
+
+                Reliance Corporate Park, Gr, RCP<br>
+
+                5 TTC Industrial Area,
+                Ghansoli, Thane Belapur Road,
+                Navi Mumbai<br>
+
+                Thane, MAHARASHTRA, 400701
+
+                <br><br>
+
+                <b>Shipping address:</b><br>
+
+                Reliance Corporate Park, Gr, RCP<br>
+
+                Navi Mumbai<br>
+
+                Ph: 9999999999
+
+            </td>
+
+            <td width="25%">
+                <span class="label">Invoice #:</span><br>
+                ITC/23-24/89771
+            </td>
+
+            <td width="25%">
+                <span class="label">Date:</span><br>
+                27 Sep 2023
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <span class="label">Place of Supply:</span><br>
+                27-MAHARASHTRA
+            </td>
+
+            <td>
+                <span class="label">Due Date:</span><br>
+                27 Sep 2023
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <span class="label">Eway Bill #</span><br>
+                371002986176
+            </td>
+
+            <td>
+                <span class="label">Vehicle Number:</span><br>
+                MH052627
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td colspan="3">
+                <span class="label">Dispatch From:</span><br>
+                ITC LIMITED<br>
+                No.18 ITC Limited,
+                Banaswadi Road,
+                Pulikeshi Nagar,
+                Bengaluru Urban, Karnataka 560005
+            </td>
+
+        </tr>
+
+    </table>
+
+    <!-- ITEMS -->
+
+    <table class="item-table">
+
+        <thead>
+
+        <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>HSN/SAC</th>
+            <th>Rate / Item</th>
+            <th>Qty</th>
+            <th>Taxable Value</th>
+            <th>IGST</th>
+            <th>Amount</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td>1</td>
+            <td>Aashirvaad Rice Flour</td>
+            <td>4069000</td>
+            <td class="right">11,016.10</td>
+            <td class="center">3 BOX</td>
+            <td class="right">33,048.31</td>
+            <td class="right">5,948.69 (18%)</td>
+            <td class="right">38,997.00</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Sunfeast Dark Fantasy</td>
+            <td>040120</td>
+            <td class="right">9,522.86</td>
+            <td class="center">2 BOX</td>
+            <td class="right">19,045.71</td>
+            <td class="right">952.29 (5%)</td>
+            <td class="right">19,998.00</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Yippee Noodles</td>
+            <td>0406</td>
+            <td class="right">14,284.82</td>
+            <td class="center">2 BOX</td>
+            <td class="right">28,569.64</td>
+            <td class="right">3,428.36 (12%)</td>
+            <td class="right">31,998.00</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+    <!-- TOTAL SECTION -->
+
+    <div class="total-section">
+
+        <div class="left-summary">
+
+            Total Items / Qty : 3 / 7.000
+
+            <br><br>
+
+            Total amount (in words):
+            INR Ninety Thousand Nine Hundred
+            Ninety Three Rupees Only.
+
+            <div class="bank-area">
+
+                <div class="bank-details">
+
+                    <b>Bank Details:</b>
+
+                    <table>
+
+                        <tr>
+                            <td>Bank</td>
+                            <td>IndusInd Bank</td>
+                        </tr>
+
+                        <tr>
+                            <td>Account #</td>
+                            <td>259500001833</td>
+                        </tr>
+
+                        <tr>
+                            <td>IFSC</td>
+                            <td>INDB0001465</td>
+                        </tr>
+
+                        <tr>
+                            <td>Branch</td>
+                            <td>Nagercoil</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="payment-qr"></div>
+
+            </div>
+
+        </div>
+
+        <div class="right-summary">
+
+            <table class="tax-summary">
+
+                <tr>
+                    <td>Taxable Amount</td>
+                    <td class="right">₹80,663.66</td>
+                </tr>
+
+                <tr>
+                    <td>IGST 5.0%</td>
+                    <td class="right">₹952.29</td>
+                </tr>
+
+                <tr>
+                    <td>IGST 12.0%</td>
+                    <td class="right">₹3,428.36</td>
+                </tr>
+
+                <tr>
+                    <td>IGST 18.0%</td>
+                    <td class="right">₹5,948.69</td>
+                </tr>
+
+                <tr>
+                    <td class="bold">Total</td>
+                    <td class="right grand-total">
+                        ₹90,993.00
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="center paid">
+                        ✔ Amount Paid
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- TAX BREAKUP -->
+
+    <table class="tax-breakup">
+
+        <tr>
+            <th>HSN/SAC</th>
+            <th>Taxable Value</th>
+            <th>Rate</th>
+            <th>Amount</th>
+            <th>Total Tax Amount</th>
+        </tr>
+
+        <tr>
+            <td>4069000</td>
+            <td class="right">33048.31</td>
+            <td>18%</td>
+            <td class="right">5948.69</td>
+            <td class="right">5948.69</td>
+        </tr>
+
+        <tr>
+            <td>040120</td>
+            <td class="right">19045.71</td>
+            <td>5%</td>
+            <td class="right">952.29</td>
+            <td class="right">952.29</td>
+        </tr>
+
+        <tr>
+            <td>0406</td>
+            <td class="right">28569.64</td>
+            <td>12%</td>
+            <td class="right">3428.36</td>
+            <td class="right">3428.36</td>
+        </tr>
+
+        <tr>
+            <th>TOTAL</th>
+            <th class="right">80,663.66</th>
+            <th></th>
+            <th class="right">10,329.34</th>
+            <th class="right">10,329.34</th>
+        </tr>
+
+    </table>
+
+    <!-- NOTES -->
+
+    <div class="notes-sign">
+
+        <div class="notes">
+
+            <h4>Notes:</h4>
+
+            Thank you for the Business!
+
+            <br><br>
+
+            <h4>Terms and Conditions:</h4>
+
+            <ol>
+                <li>Goods once sold cannot be taken back.</li>
+                <li>Warranty as per manufacturer policy.</li>
+                <li>24% p.a interest after due date.</li>
+                <li>Subject to local jurisdiction.</li>
+            </ol>
+
+        </div>
+
+        <div class="signature">
+
+            For ITC LIMITED
+
+            <div class="sign-img">
+                Sanjay Puri
+            </div>
+
+            Authorized Signatory
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div>Page 1 / 1</div>
+        <div>This is a digitally signed document.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
